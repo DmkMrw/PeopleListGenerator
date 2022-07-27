@@ -19,7 +19,9 @@ for (let i = 0; i <= 20; i++){
      if (person.gender === 'male') person.name = randChoice(maleNames);
      if (person.gender === 'female') person.name = randChoice(femaleNames);
      person.lastName = lastNames[Math.floor(Math.random() * lastNames.length)]
-     person.age = Math.floor(Math.random() * (78 - 18 ) + 18);
+     person.age = Math.floor(Math.random() * (78 - 18) + 18);
+     person.phoneNumber = Math.floor(Math.random() * (790000000 - 500000000) + 500000000);
+     person.email = `${person.name.toLowerCase()}.${person.lastName.toLowerCase()}@gmail.com`;
 
      people.push(person)
 }
@@ -27,8 +29,8 @@ for (let i = 0; i <= 20; i++){
 const data = JSON.stringify(people)
 
 fs.writeFile('people.json', data, (err) => {
-  if (err) throw err;
-  console.log('The file has been saved!');
+     if (err) throw err;
+     console.log('The file has been saved!');
 });
 
 console.log('people', people);
